@@ -93,7 +93,6 @@ This project performs comprehensive **data cleaning, feature engineering, and re
 ### 1. Data Quality Assessment
 
 #### Missing Values Analysis
-```python
 Missing Values per column:
 Student_ID                 0
 Name                      42
@@ -157,7 +156,7 @@ Numeric Columns	Median Imputation	Robust to outliers, preserves central tendency
 Categorical Columns	Mode Imputation	Most common value represents typical case
 Target Column (Result)	Row Deletion	Essential for modeling, cannot impute
 Implementation
-python
+
 # Numeric columns - Median Imputation
 for col in numeric_cols:
     df[col] = df[col].fillna(df[col].median())
@@ -179,7 +178,7 @@ Target column: 1,081 rows dropped (only if Result was missing)
 🔧 Feature Engineering
 1. Categorical Encoding
 Label Encoding (Ordinal)
-python
+
 # Used for 'Class' column with inherent order
 from sklearn.preprocessing import LabelEncoder
 
@@ -203,7 +202,7 @@ Internet_Access: 1 dummy variable
 2. Feature Scaling
 Method: StandardScaler (Z-score normalization)
 
-python
+
 from sklearn.preprocessing import StandardScaler
 
 scaler = StandardScaler()
@@ -222,7 +221,7 @@ Average_Score	(Math + Science + English) / 3	Overall academic performance indica
 Study_Efficiency	Average_Score / (Study_Hours + 1)	Learning effectiveness per hour of study
 Attendance_Category	Low (<75%), Medium (75-100%), High (>100%)	Categorize attendance patterns
 Implementation
-python
+
 # Average Score
 df['Average_Score'] = df[['Math_Score', 'Science_Score', 'English_Score']].mean(axis=1)
 
@@ -242,12 +241,13 @@ Features Used: All except individual subject scores (to prevent data leakage)
 Train-Test Split: 80% training, 20% testing
 
 Performance Metrics
-python
+
 Linear Regression Model Performance:
 - R² Score (Training): 0.92
 - R² Score (Testing): 0.89
 - RMSE: 4.52
 - MAE: 3.21
+
 Top 10 Most Influential Features
 Rank	Feature	Coefficient	Impact
 1	Average_Score	1.3757	Strong positive
@@ -313,7 +313,7 @@ Fail (0)	4,443	50.67%
 ✅ Class distribution is relatively balanced - No severe imbalance issues
 
 Performance Metrics
-python
+
 Logistic Regression Model Performance:
 - Accuracy: 47.83%
 - Precision (Pass): 46.74%
@@ -321,7 +321,7 @@ Logistic Regression Model Performance:
 - F1-Score (Pass): 43.97%
 - Training Accuracy: 53.86%
 - Test Accuracy: 47.83%
-⚠️ Performance Analysis:
+Performance Analysis:
 
 Model performs slightly better than random (50%)
 
@@ -518,7 +518,7 @@ Develop career guidance
 
 🛠️ Technical Setup
 Installation
-bash
+
 # Clone repository
 git clone https://github.com/yourusername/student-performance-analysis.git
 cd student-performance-analysis
@@ -538,7 +538,7 @@ Visualization	Matplotlib, Seaborn	Plots & charts
 Model Persistence	Joblib	Save/load models
 Web Framework	Flask/FastAPI	API creation (optional)
 Dependencies
-txt
+
 # requirements.txt
 pandas>=1.3.0
 numpy>=1.21.0
@@ -552,7 +552,7 @@ flask>=2.0.0      # Optional for API
 flask-cors>=3.0.0 # Optional for API
 🚀 How to Run
 Complete Pipeline
-python
+
 # Run all analysis
 python main.py
 
@@ -562,10 +562,10 @@ python src/feature_engineering.py
 python src/linear_regression.py
 python src/logistic_regression.py
 Jupyter Notebook
-bash
+
 jupyter notebook analysis.ipynb
 API Server (Optional)
-bash
+
 # Start API server
 python app.py
 
@@ -599,8 +599,6 @@ Last Updated: July 2026
 Version: 1.0.0
 
 This README was generated with for the Student Performance Analysis project.
-
-text
 
 This complete README.md file includes:
 
